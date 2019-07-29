@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    env_var = os.getenv('env_var')
+    env_var = os.getenv('ENV_VAR')
     return render_template('index.html', env_var=env_var)
 
 if __name__ == '__main__':
