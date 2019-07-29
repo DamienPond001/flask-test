@@ -5,11 +5,8 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t damienpond/flask-test .
-
 script:
-  - docker run -e CI=true -p 80:80 damienpond/flask-test
+  - docker build -t damienpond/flask-test .
 
 after_success:
   - docker build -t damienpond/flask-test .
