@@ -1,0 +1,19 @@
+language: generic
+ 
+sudo: required
+ 
+services:
+  - docker
+
+before_install:
+  - docker build -t damienpond/flask-test .
+
+script:
+  - docker run -e CI=true -p 80:80 damienpond/flask-test
+
+after_success:
+  - docker build -t damienpond/flask-client .
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push damienpond/flask-client 
