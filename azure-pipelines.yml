@@ -13,17 +13,21 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_hub'
+    repository: 'azure_test'
     command: 'build'
     Dockerfile: '**/Dockerfile'
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_hub'
+    repository: 'azure_test'
     command: 'login'
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_hub'
+    repository: 'azure_test'
     command: 'push'
 - task: Docker@2
   inputs:
     containerRegistry: 'docker_hub'
+    repository: 'azure_test'
     command: 'logout'
