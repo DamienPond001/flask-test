@@ -1,13 +1,10 @@
-pool:
-  vmImage: 'Ubuntu latest'
-
 variables:
   dockerId: damienpond
   imageName: azure_test
-  dockerPassword: $(dockerPassword)
-
 steps:
 - script: |
     docker build -t $(dockerId)/$(imageName) .
-    docker login -u $(dockerId) --password-stdin $(dockerPassword)
+    docker login -u $(dockerId) -p $(pswd)
     docker push $(dockerId)/$(imageName)
+  env:
+    pswd: $(dockerPassword)        # Define dockerPassword in the Variables tab of this pipeline in Pipelines page of web interface
