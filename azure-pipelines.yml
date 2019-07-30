@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- scripts: |
+- script: |
     docker build -t damienpond/azure_test .
     docker login -u damienpond -p $(DOCKER_PW)
     docker push damienpond/azure_test
