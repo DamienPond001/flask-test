@@ -10,13 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker_hub'
-    command: 'login'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker_hub'
-    repository: 'damienpond/azure_test'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+- scripts: |
+    docker build -t damienpond/azure_test .
+    docker login -u damienpond -p $(DOCKER_PW)
+    docker push damienpond/azure_test
