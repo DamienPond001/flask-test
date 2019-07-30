@@ -4,6 +4,7 @@ pool:
 variables:
   dockerId: damienpond
   imageName: azure_test
+  dockerPassword: $(dockerPassword)
 
 steps:
 - script: |
