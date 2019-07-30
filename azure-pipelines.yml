@@ -1,4 +1,6 @@
-- task: Docker@2
-  inputs:
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+pool:
+  vmImage: 'Ubuntu latest'
+
+steps:
+- script: ~
+  docker build -t damienpond/azure_test .
