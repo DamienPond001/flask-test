@@ -5,6 +5,7 @@ WORKDIR /app
 COPY . .
 
 ENV LISTEN_PORT 80
+ENV SSH_PORT 2222
 
 # ssh
 ENV SSH_PASSWD "root:Docker!"
