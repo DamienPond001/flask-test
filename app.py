@@ -12,7 +12,7 @@ def index():
 
 @app.route('/write/<filename>')
 def write(filename):
-    f= open("{}.txt".format(filename),"w+")
+    f= open("./static/{}.txt".format(filename),"w+")
 
     return "{} was created".format(filename)
 

@@ -9,8 +9,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  dockerId: pondsregistry  # Replace with your Docker ID for Docker Hub or the admin user name for the Azure Container Registry
+  imageName: test  # Replace with the name of the image you want to publish
+
 steps:
 - script: |
-    docker build -t damienpond/azure_test .
-    docker login -u damienpond -p $(DOCKER_PW)
-    docker push damienpond/azure_test
+    docker build -t $(dockerId).azurecr.io/$(imageName) .
+    docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
+    docker push $(dockerId).azurecr.io/$(imageName)
+  env:
+    pswd: $(dockerPassword) 
