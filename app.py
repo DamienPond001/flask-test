@@ -6,13 +6,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    env_var = 'test'#os.getenv('ENV_VAR')
+    env_var = 'mufkn test'#os.getenv('ENV_VAR')
 
     return render_template('index.html', env_var=env_var)
 
 @app.route('/write/<filename>')
 def write(filename):
-    f= open("./static/{}.txt".format(filename),"w+")
+    f= open("./static/{}test.txt".format(filename),"w+")
 
     return "{} was created".format(filename)
 
