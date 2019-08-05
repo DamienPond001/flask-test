@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    env_var = 'exceptionally nice app'#os.getenv('ENV_VAR')
+    env_var = 'mufukn app'#os.getenv('ENV_VAR')
 
     return render_template('index.html', env_var=env_var)
 
