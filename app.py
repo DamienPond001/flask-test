@@ -10,7 +10,7 @@ def index():
     r = robjects.r
     r.source("test.R")
     r_response = r.test()
-    env_var = r_response[0]#os.getenv('ENV_VAR')
+    env_var = os.getenv('ENV_VAR')
 
     return render_template('index.html', env_var=env_var)
 
